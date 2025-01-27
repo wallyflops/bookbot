@@ -40,12 +40,13 @@ def print_report(book_text):
         list_of_dicts.append(new_dict)
     # print(list_of_dicts)    
     list_of_dicts.sort(reverse=True, key=sort_on)
-    print(list_of_dicts)
+    # print(list_of_dicts)
     print("--- Begin report of books/frankenstein.txt ---")
     print(f"{total_words} words found in document")
 
     for letter in list_of_dicts:
-        print(f"The '{letter}' character was found  times")
+        if letter['letter'].isalpha():
+            print(f"The '{letter['letter']}' character was found {letter['count']} times")
 
 def sort_on(dict):
     return dict["count"]
